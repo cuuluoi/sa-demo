@@ -31,17 +31,21 @@
 - (BOOL)importObjectList:(NSArray *)array {
     __block BOOL val = NO;
     [_databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        NSMutableArray *inserts = [NSMutableArray array];
+        NSMutableArray *updates = [NSMutableArray array];
         for (Equipment *equipment in array) {
             BOOL checkEquipment = [self checkExist:equipment inDB:db];
             if (checkEquipment) {
                 val = [self updateObject:equipment inDB:db];
+                [updates addObject:equipment];
             } else {
                 val = [self insertObject:equipment inDB:db];
+                [inserts addObject:equipment];
             }
         }
         [db closeOpenResultSets];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"EquipmentChangedDatabase" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"EquipmentChangedDatabase" object:@{@"DatabaseUpdatedObject":updates, @"DatabaseInsertedObject":inserts}];
         });
     }];
     return val;
@@ -74,6 +78,29 @@
     __block NSMutableArray *array = [NSMutableArray array];
     [_databaseQueue inDatabase:^(FMDatabase *db) {
         NSString *stm = @"select * from equipment";
+        FMResultSet *r = [db executeQuery:stm];
+        ResulSetComposion *rc = [[ResulSetComposion alloc] initWithResulSet:r];
+        while ([rc next]) {
+            Equipment *equipment = [[Equipment alloc] init];
+            equipment.equipmentId = [rc objectForColumnIndex:0];
+            equipment.equipmentWebId = [rc objectForColumnIndex:1];
+            equipment.serial = [rc objectForColumnIndex:2];
+            equipment.product = [rc objectForColumnIndex:3];
+            equipment.equipmentDescription = [rc objectForColumnIndex:4];
+            equipment.modelYear = [rc objectForColumnIndex:5];
+            equipment.lastPMDate = [rc objectForColumnIndex:6];
+            EquipmentModel *eqModel = [[EquipmentModel alloc] init];
+            eqModel.entity = equipment;
+            [array addObject:eqModel];
+        }
+    }];
+    return array;
+}
+
+- (NSArray *)equipmentsListOffset:(NSInteger)offset limit:(NSInteger)limit {
+    __block NSMutableArray *array = [NSMutableArray array];
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *stm = [NSString stringWithFormat:@"select * from equipment limit %i,%i", offset, limit];
         FMResultSet *r = [db executeQuery:stm];
         ResulSetComposion *rc = [[ResulSetComposion alloc] initWithResulSet:r];
         while ([rc next]) {

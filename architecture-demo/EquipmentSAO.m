@@ -14,8 +14,11 @@
 @implementation EquipmentSAO
 
 - (void)getObjectFromServer {
-    NSString *fileJsonPath = [[NSBundle mainBundle] pathForResource:@"equipment" ofType:@"json"];
-    NSURL *fileURL = [NSURL fileURLWithPath:fileJsonPath];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *resorcesPath = [documentsDirectory stringByAppendingPathComponent:@"equipment.json"];
+
+    NSURL *fileURL = [NSURL fileURLWithPath:resorcesPath];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:fileURL];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -8,6 +8,7 @@
 
 #import "ServerManager.h"
 #import "EquipmentSync.h"
+#import "UtilManager.h"
 
 @implementation ServerManager
 
@@ -19,6 +20,7 @@
 }
 
 - (void)syncObjectsFromServer {
+    [[UtilManager manager] fakeServerChanged];
     EquipmentSync *eSync = [[EquipmentSync alloc] init];
     [eSync syncObjects];
     eSync.objectsDidSyncComplete = ^(EquipmentSync *sender) {

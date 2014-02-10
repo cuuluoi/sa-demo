@@ -34,7 +34,7 @@
         NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"database.sqlite"];
         _databaseQueue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
         
-        _sessionManager = [[AFURLSessionManager alloc] init];
+        _sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         
         _serverFormater = [[NSDateFormatter alloc] init];
         [_serverFormater setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
@@ -70,6 +70,22 @@
     NSBlockOperation *operation = [[NSBlockOperation alloc] init];
     [operation addExecutionBlock:block];
     [self.writeQueue addOperation:operation];
+}
+
+- (void)fakeServerChanged {
+    [self addExecuteLogicBlock:^{
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *resorcesPath = [documentsDirectory stringByAppendingPathComponent:@"equipment.json"];
+        NSData *data = [NSData dataWithContentsOfFile:resorcesPath];
+        NSDictionary *dict = [JsonLiteObjC objectFromData:data];
+        NSInteger currentYear = [(NSString *)[[[dict objectForKey:@"equipment"] firstObject] objectForKey:@"modelYear"] integerValue];
+        NSInteger newYear = currentYear + 1;
+        NSString *jsonString = [NSString stringWithContentsOfFile:resorcesPath encoding:NSUTF8StringEncoding error:NULL];
+        jsonString = [jsonString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"\"modelYear\": \"%i\"", currentYear] withString:[NSString stringWithFormat:@"\"modelYear\": \"%i\"", newYear]];
+        NSData *data1 = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+        [data1 writeToFile:resorcesPath atomically:YES];
+    }];
 }
 
 @end

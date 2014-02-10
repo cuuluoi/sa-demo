@@ -17,10 +17,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self copyDB];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    EquipmentListViewController *rootViewController = [[EquipmentListViewController alloc] initWithNibName:NSStringFromClass([EquipmentListViewController class]) bundle:Nil];
-    [self.window setRootViewController:rootViewController];
+    EquipmentListViewController *rootViewController = [[EquipmentListViewController alloc] initWithNibName:NSStringFromClass([EquipmentListViewController class]) bundle:nil];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    [self.window setRootViewController:navi];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     [[ServerManager manager] syncObjectsFromServer];
@@ -45,6 +47,12 @@
                              toPath:dbPath
                               error:&error];
         assert(error == nil);
+        resourcePath = [[NSBundle mainBundle] pathForResource:@"equipment"
+                                                       ofType:@"json"];
+        dbPath = [documentsDirectory stringByAppendingPathComponent:@"equipment.json"];
+        [fileManager copyItemAtPath:resourcePath
+                             toPath:dbPath
+                              error:&error];
         [user setBool:YES forKey:COPY_DB_FILE];
         [user synchronize];
     }

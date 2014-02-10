@@ -23,4 +23,6 @@
 @property (nonatomic, strong) NSDateFormatter *serverFormater;
 @property (nonatomic, strong) NSDateFormatter *localFormater;
 
+- (void)fakeServerChanged;
+
 @end

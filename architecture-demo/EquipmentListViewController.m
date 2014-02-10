@@ -17,9 +17,15 @@
 @property (nonatomic, strong) NSArray *equipments;
 @property (nonatomic, strong) EquipmentListService *service;
 
+@property (nonatomic) NSInteger currentScrollIndex;
+
 @end
 
 @implementation EquipmentListViewController
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:@"currentScrollIndex"];
+}
 
 - (void)viewDidLoad
 {
@@ -32,9 +38,13 @@
         __strong __typeof(weak)strong = weak;
         strong.equipments = sender.equipments;
         [strong.tableView reloadData];
+        strong.title = sender.equipmentListTitle;
     };
     [_tableView registerNib:[UINib nibWithNibName:@"EquipmentListCell" bundle:nil]
      forCellReuseIdentifier:@"EquipmentList"];
+    self.title = _service.equipmentListTitle;
+    self.currentScrollIndex = 0;
+    [self addObserver:self forKeyPath:@"currentScrollIndex" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -59,6 +69,27 @@
     EquipmentListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EquipmentList"];
     [cell setInfoObject:infoObject];
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSArray *visibleCell = [self.tableView indexPathsForVisibleRows];
+    NSIndexPath *firstOject = [visibleCell lastObject];
+    NSInteger firstRow = firstOject.row;
+    if (firstRow != self.currentScrollIndex) {
+        self.currentScrollIndex = firstRow;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"currentScrollIndex"]) {
+        NSInteger newNumber = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
+        NSInteger oldNumber = [[change objectForKey:NSKeyValueChangeOldKey] integerValue];
+        if (newNumber >= self.equipments.count - 30) {
+            if (oldNumber < newNumber) {
+                [_service loadMoreEquipment];
+            }
+        }
+    }
 }
 
 @end
