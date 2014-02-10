@@ -1,0 +1,6 @@
+platform :ios, '7.0'
+pod 'FMDB', '~> 2.2'
+pod 'AFNetworking', '~> 2.1.0'
+pod 'MBProgressHUD', '~> 0.8'
+pod 'JsonLite', '~> 1.1.1'
+pod 'SBJson', '~> 4.0.0'
