@@ -14,6 +14,4 @@
 
 - (NSArray *)equipmentsList;
 
-- (NSArray *)equipmentsListOffset:(NSInteger)offset limit:(NSInteger)limit;
-
 @end

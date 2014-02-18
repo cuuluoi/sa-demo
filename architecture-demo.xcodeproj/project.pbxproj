@@ -28,7 +28,6 @@
 		284ED6E918A232CD00638200 /* FMDatabaseQueue+InMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 284ED6D918A232CD00638200 /* FMDatabaseQueue+InMemory.m */; };
 		284ED6EA18A232CD00638200 /* QuerryStatement.m in Sources */ = {isa = PBXBuildFile; fileRef = 284ED6DB18A232CD00638200 /* QuerryStatement.m */; };
 		284ED6EB18A232CD00638200 /* Lib.m in Sources */ = {isa = PBXBuildFile; fileRef = 284ED6DE18A232CD00638200 /* Lib.m */; };
-		284ED6EC18A232CD00638200 /* NSObject+PropertyListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 284ED6E018A232CD00638200 /* NSObject+PropertyListing.m */; };
 		284ED6ED18A232CD00638200 /* SerialOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 284ED6E218A232CD00638200 /* SerialOperationQueue.m */; };
 		2880213618A877780097EA90 /* EquipmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880213518A877780097EA90 /* EquipmentListCell.m */; };
 		2880213818A877940097EA90 /* EquipmentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2880213718A877940097EA90 /* EquipmentListCell.xib */; };
@@ -42,6 +41,12 @@
 		2880215918A885B10097EA90 /* EquipmentSAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880215818A885B10097EA90 /* EquipmentSAO.m */; };
 		2880215C18A885C60097EA90 /* EquipmentDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880215B18A885C60097EA90 /* EquipmentDAO.m */; };
 		2880215F18A8A1B70097EA90 /* EquipmentListService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880215E18A8A1B70097EA90 /* EquipmentListService.m */; };
+		28E28E4418B313230065C3FE /* NSArray+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E28E3F18B313230065C3FE /* NSArray+Additional.m */; };
+		28E28E4518B313230065C3FE /* NSDictionary+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E28E4118B313230065C3FE /* NSDictionary+Additional.m */; };
+		28E28E4618B313230065C3FE /* NSObject+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E28E4318B313230065C3FE /* NSObject+Additional.m */; };
+		28E28E4918B313970065C3FE /* EquipmentListJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E28E4818B313970065C3FE /* EquipmentListJSON.m */; };
+		28E28E4C18B313AF0065C3FE /* EquipmentJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E28E4B18B313AF0065C3FE /* EquipmentJSON.m */; };
+		28E28E5218B31DB60065C3FE /* ProductJSON2.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E28E5118B31DB60065C3FE /* ProductJSON2.m */; };
 		28E3F45D18A86C5800B45B8D /* equipment.json in Resources */ = {isa = PBXBuildFile; fileRef = 28E3F45C18A86C5800B45B8D /* equipment.json */; };
 		28E3F46418A8742200B45B8D /* EquipmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E3F46218A8742200B45B8D /* EquipmentListViewController.m */; };
 		28E3F46518A8742200B45B8D /* EquipmentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E3F46318A8742200B45B8D /* EquipmentListViewController.xib */; };
@@ -93,8 +98,6 @@
 		284ED6DB18A232CD00638200 /* QuerryStatement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuerryStatement.m; sourceTree = "<group>"; };
 		284ED6DD18A232CD00638200 /* Lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
 		284ED6DE18A232CD00638200 /* Lib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lib.m; sourceTree = "<group>"; };
-		284ED6DF18A232CD00638200 /* NSObject+PropertyListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyListing.h"; sourceTree = "<group>"; };
-		284ED6E018A232CD00638200 /* NSObject+PropertyListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyListing.m"; sourceTree = "<group>"; };
 		284ED6E118A232CD00638200 /* SerialOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialOperationQueue.h; sourceTree = "<group>"; };
 		284ED6E218A232CD00638200 /* SerialOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialOperationQueue.m; sourceTree = "<group>"; };
 		2880213418A877780097EA90 /* EquipmentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentListCell.h; sourceTree = "<group>"; };
@@ -119,6 +122,18 @@
 		2880215B18A885C60097EA90 /* EquipmentDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentDAO.m; sourceTree = "<group>"; };
 		2880215D18A8A1B70097EA90 /* EquipmentListService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentListService.h; sourceTree = "<group>"; };
 		2880215E18A8A1B70097EA90 /* EquipmentListService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentListService.m; sourceTree = "<group>"; };
+		28E28E3E18B313230065C3FE /* NSArray+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Additional.h"; sourceTree = "<group>"; };
+		28E28E3F18B313230065C3FE /* NSArray+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Additional.m"; sourceTree = "<group>"; };
+		28E28E4018B313230065C3FE /* NSDictionary+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Additional.h"; sourceTree = "<group>"; };
+		28E28E4118B313230065C3FE /* NSDictionary+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Additional.m"; sourceTree = "<group>"; };
+		28E28E4218B313230065C3FE /* NSObject+Additional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Additional.h"; sourceTree = "<group>"; };
+		28E28E4318B313230065C3FE /* NSObject+Additional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Additional.m"; sourceTree = "<group>"; };
+		28E28E4718B313970065C3FE /* EquipmentListJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentListJSON.h; sourceTree = "<group>"; };
+		28E28E4818B313970065C3FE /* EquipmentListJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentListJSON.m; sourceTree = "<group>"; };
+		28E28E4A18B313AF0065C3FE /* EquipmentJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentJSON.h; sourceTree = "<group>"; };
+		28E28E4B18B313AF0065C3FE /* EquipmentJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentJSON.m; sourceTree = "<group>"; };
+		28E28E5018B31DB60065C3FE /* ProductJSON2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductJSON2.h; sourceTree = "<group>"; };
+		28E28E5118B31DB60065C3FE /* ProductJSON2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductJSON2.m; sourceTree = "<group>"; };
 		28E3F45C18A86C5800B45B8D /* equipment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = equipment.json; sourceTree = "<group>"; };
 		28E3F46118A8742200B45B8D /* EquipmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentListViewController.h; sourceTree = "<group>"; };
 		28E3F46218A8742200B45B8D /* EquipmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentListViewController.m; sourceTree = "<group>"; };
@@ -310,10 +325,14 @@
 		284ED6DC18A232CD00638200 /* Ultility */ = {
 			isa = PBXGroup;
 			children = (
+				28E28E3E18B313230065C3FE /* NSArray+Additional.h */,
+				28E28E3F18B313230065C3FE /* NSArray+Additional.m */,
+				28E28E4018B313230065C3FE /* NSDictionary+Additional.h */,
+				28E28E4118B313230065C3FE /* NSDictionary+Additional.m */,
+				28E28E4218B313230065C3FE /* NSObject+Additional.h */,
+				28E28E4318B313230065C3FE /* NSObject+Additional.m */,
 				284ED6DD18A232CD00638200 /* Lib.h */,
 				284ED6DE18A232CD00638200 /* Lib.m */,
-				284ED6DF18A232CD00638200 /* NSObject+PropertyListing.h */,
-				284ED6E018A232CD00638200 /* NSObject+PropertyListing.m */,
 				284ED6E118A232CD00638200 /* SerialOperationQueue.h */,
 				284ED6E218A232CD00638200 /* SerialOperationQueue.m */,
 			);
@@ -343,8 +362,8 @@
 		2880214118A87DEB0097EA90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2880214318A87E0F0097EA90 /* Equipment.h */,
-				2880214418A87E0F0097EA90 /* Equipment.m */,
+				28E28E5418B322940065C3FE /* RemoteModel */,
+				28E28E5318B322770065C3FE /* LocalModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -402,6 +421,28 @@
 				2880215818A885B10097EA90 /* EquipmentSAO.m */,
 			);
 			name = SAO;
+			sourceTree = "<group>";
+		};
+		28E28E5318B322770065C3FE /* LocalModel */ = {
+			isa = PBXGroup;
+			children = (
+				2880214318A87E0F0097EA90 /* Equipment.h */,
+				2880214418A87E0F0097EA90 /* Equipment.m */,
+			);
+			name = LocalModel;
+			sourceTree = "<group>";
+		};
+		28E28E5418B322940065C3FE /* RemoteModel */ = {
+			isa = PBXGroup;
+			children = (
+				28E28E4718B313970065C3FE /* EquipmentListJSON.h */,
+				28E28E4818B313970065C3FE /* EquipmentListJSON.m */,
+				28E28E4A18B313AF0065C3FE /* EquipmentJSON.h */,
+				28E28E4B18B313AF0065C3FE /* EquipmentJSON.m */,
+				28E28E5018B31DB60065C3FE /* ProductJSON2.h */,
+				28E28E5118B31DB60065C3FE /* ProductJSON2.m */,
+			);
+			name = RemoteModel;
 			sourceTree = "<group>";
 		};
 		28E3F45E18A873D400B45B8D /* ViewController */ = {
@@ -566,25 +607,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E28E4C18B313AF0065C3FE /* EquipmentJSON.m in Sources */,
 				2880215018A883EF0097EA90 /* ServerManager.m in Sources */,
+				28E28E5218B31DB60065C3FE /* ProductJSON2.m in Sources */,
 				284ED6EB18A232CD00638200 /* Lib.m in Sources */,
 				284ED6E618A232CD00638200 /* UIColor+PrismSales.m in Sources */,
 				2880213618A877780097EA90 /* EquipmentListCell.m in Sources */,
 				284ED6E518A232CD00638200 /* SmallButton.m in Sources */,
 				2880213C18A87A250097EA90 /* EquipmentModel.m in Sources */,
 				2880214D18A881FE0097EA90 /* UtilManager.m in Sources */,
-				284ED6EC18A232CD00638200 /* NSObject+PropertyListing.m in Sources */,
 				2880214518A87E0F0097EA90 /* Equipment.m in Sources */,
+				28E28E4918B313970065C3FE /* EquipmentListJSON.m in Sources */,
 				284ED6ED18A232CD00638200 /* SerialOperationQueue.m in Sources */,
 				2880214018A87A520097EA90 /* EquipmentListCellInfo.m in Sources */,
 				2880215C18A885C60097EA90 /* EquipmentDAO.m in Sources */,
+				28E28E4418B313230065C3FE /* NSArray+Additional.m in Sources */,
 				2880215618A8852D0097EA90 /* EquipmentSync.m in Sources */,
+				28E28E4518B313230065C3FE /* NSDictionary+Additional.m in Sources */,
 				284ED6E718A232CD00638200 /* DBEnviroment.m in Sources */,
 				2880215F18A8A1B70097EA90 /* EquipmentListService.m in Sources */,
 				284ED6E818A232CD00638200 /* FMDatabase+InMemory.m in Sources */,
 				284ED6E418A232CD00638200 /* ResulSetComposion.m in Sources */,
 				284ED6EA18A232CD00638200 /* QuerryStatement.m in Sources */,
 				28E3F46418A8742200B45B8D /* EquipmentListViewController.m in Sources */,
+				28E28E4618B313230065C3FE /* NSObject+Additional.m in Sources */,
 				284ED6A618A2315200638200 /* AppDelegate.m in Sources */,
 				2880215918A885B10097EA90 /* EquipmentSAO.m in Sources */,
 				284ED6E318A232CD00638200 /* DictionaryContainer.m in Sources */,

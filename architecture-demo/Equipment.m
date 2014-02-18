@@ -7,7 +7,6 @@
 //
 
 #import "Equipment.h"
-#import "NSObject+PropertyListing.h"
 
 @implementation Equipment
 

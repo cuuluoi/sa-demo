@@ -21,6 +21,5 @@
 
 @property (nonatomic, strong) Equipment *entity;
 @property (nonatomic, strong) NSDictionary *productDict;
-@property (nonatomic, strong) NSString *equipmentIdentifierString;
 
 @end

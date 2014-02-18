@@ -94,15 +94,4 @@
     return _lastPMDateString;
 }
 
-- (NSString *)equipmentIdentifierString {
-    if (!_equipmentDescriptionString) {
-        if (_entity.equipmentId) {
-            _equipmentIdentifierString = _entity.equipmentId.stringValue;
-        } else {
-            _equipmentIdentifierString = @"UNKNOWN";
-        }
-    }
-    return _equipmentIdentifierString;
-}
-
 @end

@@ -12,10 +12,7 @@
 
 - (void)loadData;
 
-@property (nonatomic, strong) NSMutableArray *equipments;
+@property (nonatomic, strong) NSArray *equipments;
 @property (nonatomic, copy, readwrite) void(^equipmentListDidLoad)(EquipmentListService *sender);
-@property (nonatomic, strong) NSString *equipmentListTitle;
-
-- (void)loadMoreEquipment;
 
 @end

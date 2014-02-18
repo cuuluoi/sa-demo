@@ -20,4 +20,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <JsonLite/JsonLiteObjC.h>
 #import <SBJson/SBJson4.h>
+#import "NSObject+Additional.h"
+#import "NSDictionary+Additional.h"
+#import "NSArray+Additional.h"
 #endif

@@ -57,10 +57,4 @@
     return _detailString;
 }
 
-- (void)setModel:(EquipmentModel *)model {
-    _model = model;
-    _detailString = nil;
-    _titleString = nil;
-}
-
 @end

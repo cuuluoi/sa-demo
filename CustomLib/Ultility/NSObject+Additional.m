@@ -1,15 +1,15 @@
 //
-//  NSObject+PropertyListing.m
-//  DSL462_iOS
+//  NSObject+Additional.m
+//  jsonkit-app
 //
-//  Created by El Nino on 4/4/13.
-//  Copyright (c) 2013 El Nino. All rights reserved.
+//  Created by Cừu Lười on 2/17/14.
+//  Copyright (c) 2014 Cừu Lười. All rights reserved.
 //
 
-#import "NSObject+PropertyListing.h"
+#import "NSObject+Additional.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (PropertyListing)
+@implementation NSObject (Additional)
 
 -(NSDictionary *)propertiesListAndValue {
     NSMutableDictionary *props = [NSMutableDictionary dictionary];
@@ -36,6 +36,16 @@
     }
     free(properties);
     return props;
+}
+
++ (NSDictionary *)classMaping {
+    return nil;
+}
+
+- (NSString *)jsonString {
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[self propertiesListAndValue] options:NSJSONWritingPrettyPrinted error:NULL];
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return result;
 }
 
 @end

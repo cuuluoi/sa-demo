@@ -24,7 +24,7 @@
     EquipmentSync *eSync = [[EquipmentSync alloc] init];
     [eSync syncObjects];
     eSync.objectsDidSyncComplete = ^(EquipmentSync *sender) {
-       NSLog(@"sync complete");
+        NSLog(@"sync complete");
     };
 }
 
